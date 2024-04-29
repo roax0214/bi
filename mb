@@ -1,0 +1,88 @@
+package com.example.p10mb;
+
+import android.graphics.Color;
+import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
+import android.widget.TextView;
+
+import androidx.activity.EdgeToEdge;
+import android.content.Intent;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
+
+public class MainActivity extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater mi=getMenuInflater();
+        mi.inflate(R.menu.menu,menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        TextView tv=(TextView) findViewById(R.id.tv);
+        switch (item.getItemId()){
+            case R.id.r:
+                tv.setBackgroundColor(Color.RED);
+                return true;
+            case R.id.g:
+                tv.setBackgroundColor(Color.GREEN);
+                return true;
+            case R.id.b:
+                tv.setBackgroundColor(Color.BLUE);
+                return true;
+
+        }
+        return super.onOptionsItemSelected(item);
+    }
+}
+-----------------------------------------------------
+xml
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+android:id="@+id/tv"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+-----------------------------------------------------------
+menu.xml
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/r"
+        android:title="Red"
+        />
+    <item
+        android:id="@+id/g"
+        android:title="Green"
+        />
+    <item
+        android:id="@+id/b"
+        android:title="Blue"
+        />
+</menu>
