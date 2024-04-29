@@ -1,0 +1,50 @@
+package com.example.p3;
+
+import android.os.Bundle;
+import android.util.Log;
+
+import androidx.activity.EdgeToEdge;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
+
+public class MainActivity extends AppCompatActivity {
+    String tag="lifecycle";
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        Log.d(tag,"This is oncreate method");
+    }
+    @Override
+    public void onStart() {
+        super.onStart();
+        Log.d(tag,"This is onstart method");
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        Log.d(tag,"This is onstop method");
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        Log.d(tag,"This is ondestroy method");
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        Log.d(tag,"This is onpause method");
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        Log.d(tag,"This is onresume method");
+    }
+}
