@@ -1,0 +1,57 @@
+package com.example.p8;
+import androidx.appcompat.app.AppCompatActivity;
+import android.graphics.Color;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+import android.widget. TextView;
+
+public class MainActivity extends AppCompatActivity implements
+        AdapterView.OnItemClickListener
+{
+    ListView lv1;
+    String[]c={"red","green","blue"};
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        lv1=(ListView)findViewById(R.id.lv);
+        ArrayAdapter<String>a = new
+                ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,c);
+        lv1.setAdapter(a);
+        lv1.setOnItemClickListener(this);
+    }
+    @Override
+    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l){
+
+        TextView tv=(TextView) view;
+        if(i==0){
+            tv.setBackgroundColor(Color.RED);
+        }
+        if(i==1){
+            tv.setBackgroundColor(Color.GREEN);}
+        if (i==2){
+            tv.setBackgroundColor(Color.BLUE);
+        }}}
+------------------------------------------------------------------------
+xml
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+
+    <ListView
+        android:id="@+id/lv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+
+</LinearLayout>
